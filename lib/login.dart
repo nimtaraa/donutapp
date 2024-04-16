@@ -1,3 +1,4 @@
+import 'package:donutapp/homepage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -42,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               
               
               Padding(
-              padding: const EdgeInsets.only(top: 57),
+              padding: const EdgeInsets.only(top: 45),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -132,8 +133,9 @@ class _LoginPageState extends State<LoginPage> {
                                         SizedBox(height: 77),
                                         ElevatedButton(
                                           onPressed: () {
-                                            print(email.text);
-                                            // Handle sign-in button press here
+Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+  return homepage();
+},));                                            // Handle sign-in button press here
                                           },
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Colors.pink,
