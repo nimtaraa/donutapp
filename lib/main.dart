@@ -1,4 +1,5 @@
 import 'package:donutapp/load.dart';
+import 'package:donutapp/login.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -10,7 +11,11 @@ class donut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: "SweetWheel",
+    
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      
+      title: "SweetWheel",
     home: loadin(),
     );
     
