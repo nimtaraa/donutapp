@@ -61,6 +61,7 @@ class _homepageState extends State<homepage> {
           ),
           bottomNavigationBar: BottomNavigationBar(
             selectedLabelStyle: TextStyle(color: Colors.pink,fontSize: 10),
+            iconSize: 22,
             selectedItemColor: Colors.pink,
             unselectedLabelStyle: TextStyle(color: Colors.grey,fontSize: 10),
             unselectedItemColor: Colors.grey,
@@ -69,23 +70,26 @@ class _homepageState extends State<homepage> {
               
               icon: IconButton(onPressed:() {
               
-            }, icon:Icon(Icons.home,size: 20,)),label: "Home",),
+            }, icon:Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Icon(Icons.home,size: 22,),
+            )),label: "",),
           
            BottomNavigationBarItem(
               
               icon: IconButton(onPressed:() {
               
-            }, icon:Icon(Icons.shopping_cart,size: 20,)),label: "Orders",),
+            }, icon:Icon(Icons.shopping_cart,size: 22,)),label: "",),
               BottomNavigationBarItem(
               
               icon: IconButton(onPressed:() {
               
-            }, icon:Icon(Icons.card_giftcard,size: 20,)),label: "Rewards",),
+            }, icon:Icon(Icons.card_giftcard,size: 22,)),label: "",),
            BottomNavigationBarItem(
               
               icon: IconButton(onPressed:() {
               
-            }, icon:Icon(Icons.person,size: 20,)),label: "Profile",)
+            }, icon:Icon(Icons.person,size: 22,)),label: "",)
           ]
           
           
