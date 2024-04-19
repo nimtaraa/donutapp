@@ -1,14 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 class details extends StatefulWidget {
-  const details({super.key});
+  String img1;
+  String iname;
+  String iprice;
+  String idescription1;
+  String idescription2;
+  details({
+    required this.img1,
+    required this.iname,
+    required this.iprice,
+    required this.idescription1,
+    required this.idescription2,
+    super.key});
 
   @override
   State<details> createState() => _detailsState();
 }
 
 class _detailsState extends State<details> {
+
+int a=1;
+String c='';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,7 +64,7 @@ class _detailsState extends State<details> {
             height: 300,
             width: 300,
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("sourcess/donut1.png"),fit: BoxFit.contain)
+              image: DecorationImage(image: AssetImage(widget.img1),fit: BoxFit.contain)
             ),
            ),
          ),
@@ -58,13 +75,138 @@ class _detailsState extends State<details> {
             ,
            borderRadius: BorderRadius.only(
             topLeft: Radius.circular(13),
-            topRight: Radius.circular(13)
+            topRight: Radius.circular(13),
+             bottomLeft: Radius.circular(15),
+               bottomRight: Radius.circular(15)
            )
           ),
-          child: Column(
-            children: [
-                    Text("Pumpkin Spice",style: TextStyle(color: const Color.fromARGB(1,23, 76, 79,)),)
-            ],
+          child: Padding(
+                      padding: const EdgeInsets.only(top: 15,left: 14,right: 14),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+            
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(widget.iname,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:28 ,fontWeight: FontWeight.w500),),
+                          Container(
+                      height: 40,
+                      width: 40,
+                            decoration: BoxDecoration(
+                              color:Color.fromARGB(255, 11, 38, 39) ,
+                              shape: BoxShape.circle
+                            ),
+                            child: IconButton(onPressed:() {
+                              
+                            }, icon: Icon(Icons.favorite_rounded,size: 22,color: Color.fromARGB(255, 255, 230, 238),)),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 20,),
+                   Text(widget.idescription1,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
+            
+            SizedBox(height: 20,),
+                   Text("Allergen & Ingredient",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
+                   Text(widget.idescription2,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 13),)
+              ],
+            ),
+          ),
+         ),
+         Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+               topLeft: Radius.circular(15),
+               topRight: Radius.circular(15),
+              
+            ),
+            color:Color.fromARGB(255, 255, 230, 238),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(right: 20,left: 20,top: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                                       Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text("Price",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 15),),
+                                              Text(widget.iprice,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 18,fontWeight: FontWeight.bold),)
+                                            ],
+                                          ),
+                                          
+
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                      height: 18,
+                                      child: ElevatedButton(onPressed:() {
+                                         if (a>0) {
+                                        setState(() {
+                                           a--;
+                                           
+                                        });
+                                           print(a);
+                                         }
+
+                                        }, 
+                                      style: ElevatedButton.styleFrom(
+                                        shape: CircleBorder(),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(bottom: 20),
+                                        child: Icon(Icons.minimize,color: Color.fromARGB(255, 0, 0, 0),size: 12,),
+                                      )
+                                      
+                                      ),
+                                    ),
+                                    Text("$a",style: TextStyle(color: Colors.black,fontSize:14 ),),
+
+                                    SizedBox(
+                                      height: 15,
+                                      child: ElevatedButton(onPressed:() {  
+                                        setState(() {
+                                                 a++;
+
+                                        });
+                                         print(a);
+                                      
+                                      }, 
+                                      style: ElevatedButton.styleFrom(
+                                        shape: CircleBorder(),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(bottom: 13),
+                                        child: Icon(Icons.add,color: Color.fromARGB(255, 0, 0, 0),size: 15,),
+                                      )
+                                      
+                                      ),
+                                    ),
+                                  ],
+                                )
+
+                                        ],
+                                       ),
+
+                                       Padding(
+                                         padding: const EdgeInsets.only(top: 55),
+                                         child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                          
+                                            backgroundColor: Color.fromARGB(255, 234, 182, 100),
+                                            shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                            fixedSize: Size(500, 20)
+                                          ),
+                                          onPressed:() {
+                                           
+                                         }, child: Text("Add to Bag",style: TextStyle(color: Colors.white,fontSize: 15),)),
+                                       )
+              ],
+            ),
           ),
          )
 
