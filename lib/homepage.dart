@@ -218,9 +218,9 @@ class _homepageState extends State<homepage> {
                   child: TabBarView(children: [
                     Column(
                       children: [
-                        itemm(img: "sourcess/Cofee1.png", itemname: "Original Coffee"),
-                        itemm(img: "sourcess/Tea1.png", itemname: "Tea"),
-                        itemm(img: "sourcess/nespresso1.png", itemname: "Enespresso")
+                        itemm(img: "sourcess/Cofee1.png", itemname: "Original Coffee", cprice: 'Rs.550.00', cdescription1: 'Tased the Orignal tase of coffee', cdescription2: 'Included Coffee,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
+                        itemm(img: "sourcess/Tea1.png", itemname: "Tea", cprice: 'Rs.350.00', cdescription1: 'Tased the taste of Tea', cdescription2: 'Included Milk,Suger,tea,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
+                        itemm(img: "sourcess/nespresso1.png", itemname: "Enespresso", cprice: 'Rs 650.00', cdescription1: 'Tased the orignal taste of Enespresso', cdescription2: 'Included Dark Coffee,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',)
 
 
                       ],
@@ -228,9 +228,9 @@ class _homepageState extends State<homepage> {
 
                            Column(
                       children: [
-                        itemm(img: "sourcess/Tea1(1).png", itemname: "Iced Latte"),
-                        itemm(img: "sourcess/Tea1(2).png", itemname: "Iced Macchiato"),
-                        itemm(img: "sourcess/Tea1(3).png", itemname: "Iced Coffee with milk")
+                        itemm(img: "sourcess/Tea1(1).png", itemname: "Iced Latte", cprice: 'Rs.700.00', cdescription1: 'Tased the Ice Latte', cdescription2: 'Included Icecream,Latte,Coffee,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
+                        itemm(img: "sourcess/Tea1(2).png", itemname: "Iced Macchiato", cprice: 'Rs.750.00', cdescription1: 'Tased the Iced Macchiato', cdescription2: 'Included Icecream,Coffee,Milk,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
+                        itemm(img: "sourcess/Tea1(3).png", itemname: "Iced Coffee with milk", cprice: 'Rs.800.00', cdescription1: 'Tased the Iced Coffee With milk', cdescription2: 'Included Cofee, Milk,Chocolate,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',)
 
 
                       ],
@@ -238,7 +238,7 @@ class _homepageState extends State<homepage> {
             SingleChildScrollView(
               child: Column(
                         children: [
-                          itemm(img: "sourcess/Cofee 1(2).png", itemname: "Tripple Chocolate"),
+                          itemm(img: "sourcess/Cofee 1(2).png", itemname: "Tripple Chocolate", cprice: 'Rs.870.00', cdescription1: 'Tased the Thripple Chocolate', cdescription2: 'Included Chocolate ,Milk,Nuts,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
               
               
               Container(
@@ -257,7 +257,7 @@ class _homepageState extends State<homepage> {
                   ),
               
               
-                          itemm(img: "sourcess/nespresso 1(2).png", itemname: "Classic Sprinkle")
+                          itemm(img: "sourcess/nespresso 1(2).png", itemname: "Classic Sprinkle", cprice: 'Rs.760.00', cdescription1: 'Tasted the Classic Spricle of Donuts', cdescription2: 'Included Milk,Chocolate,Nuts,Floar,Suger,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',)
               
               
                         ],

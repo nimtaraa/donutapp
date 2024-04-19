@@ -1,9 +1,24 @@
 import 'package:donutapp/load.dart';
 import 'package:donutapp/login.dart';
+import 'package:donutapp/model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main(){
-  runApp(donut());
+  
+  runApp(
+    
+    ChangeNotifierProvider(
+      
+      create:(context) => cartmodel(),
+    
+    
+    child: donut(),
+    
+    )
+    
+    
+    );
 
 }
 class donut extends StatelessWidget {

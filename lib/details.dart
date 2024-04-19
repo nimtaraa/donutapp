@@ -1,7 +1,9 @@
+import 'package:donutapp/model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 class details extends StatefulWidget {
   String img1;
@@ -27,6 +29,7 @@ class _detailsState extends State<details> {
 
 int a=1;
 String c='';
+List detailsitems=[];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ String c='';
         appBar: AppBar(
           backgroundColor: Colors.transparent,
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:  EdgeInsets.all(8.0),
           child: Container(
             height: 10,
             width: 10,
@@ -202,16 +205,28 @@ String c='';
                                        ),
 
                                        Padding(
-                                         padding: const EdgeInsets.only(top: 55),
+                                         padding: const EdgeInsets.only(top: 55,bottom: 10),
                                          child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
                                           
                                             backgroundColor: Color.fromARGB(255, 234, 182, 100),
                                             shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                            fixedSize: Size(500, 20)
+                                            fixedSize: Size(500, 60)
                                           ),
                                           onPressed:() {
+
+                                         detailsitems.add([widget.img1,widget.iname,widget.iprice]); 
+
                                            
+                                           for (int i = 0; i < detailsitems.length; i++) {
+                                             
+                                             Provider.of<cartmodel>(context,listen: false).additemtocart(detailsitems[i], i);
+
+
+
+                                           }
+
+
                                          }, child: Text("Add to Bag",style: TextStyle(color: Colors.white,fontSize: 15),)),
                                        )
               ],
