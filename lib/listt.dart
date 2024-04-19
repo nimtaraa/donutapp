@@ -6,12 +6,17 @@ class listt extends StatefulWidget {
   String imagepath;
   String name;
   String price;
+  String description01;
+    String description02;
+
 
    listt({
     
     required this.imagepath,
     required this.name,
     required this.price,
+    required this.description01,
+    required this.description02,
     
     super.key});
 
@@ -25,7 +30,7 @@ class _listtState extends State<listt> {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder:(context) {
-          return details();
+          return details(img1: widget.imagepath, iname: widget.name, iprice: widget.price, idescription1: widget.description01, idescription2: widget.description02);
         },));
       },
       child: Container(

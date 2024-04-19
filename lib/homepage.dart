@@ -129,27 +129,27 @@ class _homepageState extends State<homepage> {
                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                      listt(imagepath: 'sourcess/donut1.png', name: 'Pumpkin Spice', price: 'Rs 400.00',),
+                      listt(imagepath: 'sourcess/donut1.png', name: 'Pumpkin Spice ', price: 'Rs 400.00', description01: 'Glazed old fashioned pumpkin spice cake donut', description02: 'May contain Milk, Eggs, Wheat, Tree Nuts, Peanuts, Seasame and Soy.',),
                       
                     SizedBox(width: 20,),
-                      listt(imagepath: 'sourcess/donut2.png', name: 'strawberry Lemon', price: 'Rs 450.00',),
+                      listt(imagepath: 'sourcess/donut2.png', name: 'strawberry Lemon ', price: 'Rs 450.00', description01: 'Glazed old fashioned strawberry lemon cake donut',description02: "This classic cake donut offers a delightful blend of ripe strawberry and zesty lemon flavors in every bite.may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.",),
            
                  
                                   SizedBox(width: 20,),
                  
-                                      listt(imagepath: 'sourcess/donut3.png', name: 'strawberry ', price: 'Rs 350.00',),
+                                      listt(imagepath: 'sourcess/donut3.png', name: 'strawberry  ', price: 'Rs 350.00', description01: 'Glazed old fashioned strawberry spice cake donut', description02: 'This donut features a classic cake base infused with the sweet, fruity flavor of ripe strawberries.may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.',),
            
                                   SizedBox(width: 20,),
                  
-                                    listt(imagepath: 'sourcess/donut4.png', name: 'Vanila ', price: 'Rs 250.00',),
+                                    listt(imagepath: 'sourcess/donut4.png', name: 'Vanila ', price: 'Rs 250.00', description01: 'Glazed old fashioned Vanila spice cake donut', description02: 'This donut offers a classic cake base infused with the warm, comforting flavor of vanilla..may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.',),
            
                                   SizedBox(width: 20,),
                  
-                                    listt(imagepath: 'sourcess/donut5.png', name: 'Blueberry', price: 'Rs 750.00',),
+                                    listt(imagepath: 'sourcess/donut5.png', name: 'Blueberries ', price: 'Rs 750.00', description01: 'Glazed old fashioned Blueberry spice cake donut', description02: 'This donut features a classic cake base infused with the natural sweetness of plump, ripe blueberries..may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.',),
            
                                   SizedBox(width: 20,),
                  
-                                                      listt(imagepath: 'sourcess/donut6.png', name: 'Vanila Lemon', price: 'Rs 650.00',),
+                                                      listt(imagepath: 'sourcess/donut6.png', name: 'Vanila Lemon ', price: 'Rs 650.00', description01: 'Glazed old fashioned Vanila Lemonkin spice cake donut', description02: 'This donut features a classic cake base infused with a harmonious blend of warm vanilla and zesty lemon flavors.may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.',),
           
                                 SizedBox(width: 20,),
                  
@@ -168,7 +168,7 @@ class _homepageState extends State<homepage> {
                 TabBar(
                   indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    color: Colors.pink
+                    color: Color.fromARGB(200, 237, 68, 124)
                   ),
                  labelColor: Colors.white,
                  unselectedLabelColor: Colors.black,

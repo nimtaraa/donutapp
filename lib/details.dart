@@ -9,6 +9,8 @@ class details extends StatefulWidget {
   String iprice;
   String idescription1;
   String idescription2;
+  
+
   details({
     required this.img1,
     required this.iname,
@@ -74,51 +76,58 @@ String c='';
             color: Colors.white
             ,
            borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(13),
-            topRight: Radius.circular(13),
-             bottomLeft: Radius.circular(15),
-               bottomRight: Radius.circular(15)
+            topLeft: Radius.circular(23),
+            topRight: Radius.circular(23),
+            
            )
           ),
           child: Padding(
-                      padding: const EdgeInsets.only(top: 15,left: 14,right: 14),
+                      padding: const EdgeInsets.only(top: 15,),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
             
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(widget.iname,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:28 ,fontWeight: FontWeight.w500),),
-                          Container(
-                      height: 40,
-                      width: 40,
-                            decoration: BoxDecoration(
-                              color:Color.fromARGB(255, 11, 38, 39) ,
-                              shape: BoxShape.circle
-                            ),
-                            child: IconButton(onPressed:() {
-                              
-                            }, icon: Icon(Icons.favorite_rounded,size: 22,color: Color.fromARGB(255, 255, 230, 238),)),
-                          )
-                        ],
+                      Padding(
+                      padding: const EdgeInsets.only(left: 14,right: 14),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(widget.iname,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:28 ,fontWeight: FontWeight.w500),),
+                            Container(
+                        height: 40,
+                        width: 40,
+                              decoration: BoxDecoration(
+                                color:Color.fromARGB(255, 11, 38, 39) ,
+                                shape: BoxShape.circle
+                              ),
+                              child: IconButton(onPressed:() {
+                                
+                              }, icon: Icon(Icons.favorite_rounded,size: 22,color: Color.fromARGB(255, 255, 255, 255),)),
+                            )
+                          ],
+                        ),
                       ),
                       SizedBox(height: 20,),
-                   Text(widget.idescription1,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
+                   Padding(
+                      padding: const EdgeInsets.only(left: 14,right: 14),
+                     child: Text(widget.idescription1,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
+                   ),
             
             SizedBox(height: 20,),
-                   Text("Allergen & Ingredient",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
-                   Text(widget.idescription2,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 13),)
-              ],
-            ),
-          ),
-         ),
-         Container(
+                   Padding(
+                      padding: const EdgeInsets.only(left: 14,right: 14),
+                     child: Text("Allergen & Ingredient",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
+                   ),
+                   Padding(
+                      padding: const EdgeInsets.only(left: 14,right: 14),
+                     child: Text(widget.idescription2,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 13),),
+                   ),
+                    Container(
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-               topLeft: Radius.circular(15),
-               topRight: Radius.circular(15),
+               topLeft: Radius.circular(33),
+               topRight: Radius.circular(33),
               
             ),
             color:Color.fromARGB(255, 255, 230, 238),
@@ -209,6 +218,11 @@ String c='';
             ),
           ),
          )
+              ],
+            ),
+          ),
+         ),
+        
 
 
           ],
