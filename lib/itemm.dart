@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class itemm extends StatefulWidget {
   String img;
   String itemname;
-  String cprice;
+  int cprice;
   String cdescription1;
   String cdescription2;
 

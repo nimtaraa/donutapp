@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class listt extends StatefulWidget {
   String imagepath;
   String name;
-  String price;
+  int price;
   String description01;
     String description02;
 
@@ -63,7 +63,7 @@ class _listtState extends State<listt> {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10,top: 4),
-          child: Text(widget.price,style: TextStyle(color: Colors.black,fontSize: 12),),
+          child: Text(widget.price.toString(),style: TextStyle(color: Colors.black,fontSize: 12),),
         )
       ],
          ),

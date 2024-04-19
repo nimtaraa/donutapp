@@ -47,17 +47,29 @@ class _cartState extends State<cart> {
                                 borderRadius: BorderRadius.circular(15)
                               ),            
                                    child: ListTile(
-                                    leading: Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: BoxDecoration(
-                                       
-                                        image: DecorationImage(image: AssetImage(value.cartitems[index][0]),fit: BoxFit.contain)
+                                    leading: Stack(
+                                      children:[Container(
+                                        height: 55,
+                                        width: 55,
+                                        decoration: BoxDecoration(
+                                         
+                                          image: DecorationImage(image: AssetImage(value.cartitems[index][0]),fit: BoxFit.contain)
+                                        ),
                                       ),
+                                      Container(
+                                        height: 25,
+                                        width: 25,
+                                        decoration: BoxDecoration(
+                                          color: Color.fromARGB(255, 11, 38, 39),
+                                          shape: BoxShape.circle
+                                        ),
+                                        child: Center(child: Text(value.cartitems[index][3].toString(),style: TextStyle(color: Colors.white,fontSize: 13),)),
+                                      )
+                                      ]
                                     ),
-                                    title: Text(value.cartitems[index][1],style: TextStyle(color: Colors.black
-                                    ,fontSize: 15),),
-                                    subtitle: Text(value.cartitems[index][2],style: TextStyle(color: Colors.black,fontSize: 10),),
+                                    title: Text(value.cartitems[index][1],style: TextStyle(color: Color.fromARGB(255, 11, 38, 39)
+                                    ,fontSize: 15,fontWeight: FontWeight.bold),),
+                                    subtitle: Text("Rs ${value.cartitems[index][2].toString()}.00",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 12),),
 
                                     trailing: IconButton(onPressed:() {
                                       Provider.of<cartmodel>(context,listen: false).removeitem(index);

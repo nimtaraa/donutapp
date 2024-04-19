@@ -43,7 +43,7 @@ for (int j = 0; j < cartitems.length; j++) {
   
 }
 
-return totalprice.toString();
+return totalprice.toStringAsFixed(2);
 
 }
 

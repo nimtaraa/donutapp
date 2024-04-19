@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 class details extends StatefulWidget {
   String img1;
   String iname;
-  String iprice;
+  int iprice;
   String idescription1;
   String idescription2;
   
@@ -104,6 +104,7 @@ List detailsitems=[];
                                 shape: BoxShape.circle
                               ),
                               child: IconButton(onPressed:() {
+                              
                                 
                               }, icon: Icon(Icons.favorite_rounded,size: 22,color: Color.fromARGB(255, 255, 255, 255),)),
                             )
@@ -147,7 +148,7 @@ List detailsitems=[];
             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Text("Price",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 15),),
-                                              Text(widget.iprice,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 18,fontWeight: FontWeight.bold),)
+                                              Text("Rs.${widget.iprice}.00",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 18,fontWeight: FontWeight.bold),)
                                             ],
                                           ),
                                           
@@ -157,7 +158,7 @@ List detailsitems=[];
                                     SizedBox(
                                       height: 18,
                                       child: ElevatedButton(onPressed:() {
-                                         if (a>0) {
+                                         if (a>1) {
                                         setState(() {
                                            a--;
                                            
@@ -215,7 +216,7 @@ List detailsitems=[];
                                           ),
                                           onPressed:() {
 
-                                         detailsitems.add([widget.img1,widget.iname,widget.iprice]); 
+                                         detailsitems.add([widget.img1,widget.iname,widget.iprice*a,a]); 
 
                                            
                                            for (int i = 0; i < detailsitems.length; i++) {

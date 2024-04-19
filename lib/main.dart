@@ -10,9 +10,9 @@ void main(){
     
     ChangeNotifierProvider(
       
-      create:(context) => cartmodel(),
+    create:(context) => cartmodel(),
     
-    
+
     child: donut(),
     
     )
