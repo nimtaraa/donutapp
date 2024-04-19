@@ -1,3 +1,4 @@
+import 'package:donutapp/cart.dart';
 import 'package:donutapp/itemm.dart';
 import 'package:donutapp/listt.dart';
 import 'package:flutter/cupertino.dart';
@@ -53,7 +54,10 @@ class _homepageState extends State<homepage> {
                     color: Colors.white
                   ),
                   child: IconButton(onPressed:() {
-                    
+                    Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                      return cart();
+                      
+                    },));
                   }, icon: Icon(Icons.shopping_cart,color:Color.fromARGB(200, 237, 68, 124),size: 19,)),
                 ),
               )
