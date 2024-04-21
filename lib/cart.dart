@@ -33,7 +33,7 @@ class _cartState extends State<cart> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                 Container(
-                  height: 500,
+                  height: 350,
                   width: double.infinity,
                   child: ListView.builder(
                     itemCount: value.cartitems.length,
@@ -85,6 +85,51 @@ class _cartState extends State<cart> {
                     
                     ),
 
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15,right: 15),
+                  child: Container(
+                    width: double.infinity,
+                    child: Divider(
+                        height: 1,
+                        color: Color.fromARGB(87, 0, 0, 0),
+                     ),
+                  ),
+                ),
+                Container(
+                  height: 170,
+                  width: double.infinity,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15,right: 15),
+                  child: Container(
+                    width: double.infinity,
+                    child: Divider(
+                        height: 1,
+                        color: Color.fromARGB(87, 0, 0, 0),
+                     ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15,right: 15,top: 12),
+                  child: Container(
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                         Text("Summary",style: TextStyle(fontSize: 20,color: Color.fromARGB(255, 11, 38, 39),fontWeight: FontWeight.bold),),
+                          SizedBox(height: 10,),
+                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                               Text("Subtotal",style: TextStyle(fontSize: 15,color: Color.fromARGB(255, 11, 38, 39)),),
+
+
+                                    ],
+                         )
+                      ],
+                    ),
+                  ),
                 )
 
 

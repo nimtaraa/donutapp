@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   percent_indicator: ^4.2.3
   provider: ^6.1.2
+  lottie: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -87,6 +88,7 @@ flutter:
     - sourcess/Tea 1(2).png
     - sourcess/Cofee 1(2).png
     - sourcess/nespresso 1(2).png
+    - sourcess/animation01.json
 
 
 
