@@ -39,7 +39,7 @@ double totalprice=0;
 
 for (int j = 0; j < cartitems.length; j++) {
 
-  totalprice+=double.parse(cartitems[j][2]);
+  totalprice+=double.parse(cartitems[j][2].toString());
   
 }
 

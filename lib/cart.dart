@@ -1,4 +1,5 @@
 import 'package:donutapp/model.dart';
+import 'package:donutapp/thankyoupage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -47,8 +48,11 @@ class _cartState extends State<cart> {
                                 borderRadius: BorderRadius.circular(15)
                               ),            
                                    child: ListTile(
+                                    
                                     leading: Stack(
-                                      children:[Container(
+                                      children:[
+                                        
+                                        Container(
                                         height: 55,
                                         width: 55,
                                         decoration: BoxDecoration(
@@ -124,9 +128,24 @@ class _cartState extends State<cart> {
                           children: [
                                Text("Subtotal",style: TextStyle(fontSize: 15,color: Color.fromARGB(255, 11, 38, 39)),),
 
+                               Text(value.calculation().toString())
 
                                     ],
-                         )
+                         ),
+
+                           Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                               Text("Convenience Fee",style: TextStyle(fontSize: 15,color: Color.fromARGB(255, 11, 38, 39)),),
+                               
+
+                                    ],
+                         ),
+                         ElevatedButton(onPressed:() {
+                            Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                              return thankyou();
+                            },),);
+                         }, child: Text("cart",style: TextStyle(color: Colors.black,fontSize: 10),))
                       ],
                     ),
                   ),

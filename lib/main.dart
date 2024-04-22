@@ -1,5 +1,4 @@
 import 'package:donutapp/load.dart';
-import 'package:donutapp/login.dart';
 import 'package:donutapp/model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +31,10 @@ class donut extends StatelessWidget {
       
       title: "SweetWheel",
     home: loadin(),
+    theme: ThemeData(
+      
+      primaryColor: Colors.amber,
+      brightness:Brightness.light),
     );
     
   }
