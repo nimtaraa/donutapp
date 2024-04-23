@@ -1,9 +1,18 @@
+import 'package:donutapp/itemm.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class thankyou extends StatefulWidget {
-  const thankyou({super.key});
+List getcart;
+
+
+
+   thankyou({
+    
+    required this.getcart,
+    
+    super.key});
 
   @override
   State<thankyou> createState() => _thankyouState();
@@ -46,6 +55,19 @@ class _thankyouState extends State<thankyou> {
                       height: 90,
                       width: double.infinity,
                       decoration: BoxDecoration(borderRadius:BorderRadius.circular(20),color: Colors.white),
+                      child: Padding(
+                        padding:  EdgeInsets.all(4.0),
+                        child: ListView.builder(
+                          itemCount: widget.getcart.length,
+                          itemBuilder:(context, index) {
+                        
+                            return ListTile(
+                               title:Text(widget.getcart[index][1])
+                        
+                            );
+                          
+                        },),
+                      ),
                     ),
                   ),
                   ],

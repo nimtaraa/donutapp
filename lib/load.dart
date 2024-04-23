@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:donutapp/login.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class loadin extends StatefulWidget {
   

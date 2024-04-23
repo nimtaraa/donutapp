@@ -36,6 +36,6 @@ class donut extends StatelessWidget {
       primaryColor: Colors.amber,
       brightness:Brightness.light),
     );
-    
+
   }
 }

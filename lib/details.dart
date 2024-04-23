@@ -1,3 +1,4 @@
+import 'package:donutapp/button.dart';
 import 'package:donutapp/model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class details extends StatefulWidget {
     required this.iprice,
     required this.idescription1,
     required this.idescription2,
+    
     super.key});
 
   @override
@@ -28,7 +30,6 @@ class details extends StatefulWidget {
 class _detailsState extends State<details> {
 
 int a=1;
-String c='';
 List detailsitems=[];
 
   @override
@@ -75,82 +76,90 @@ List detailsitems=[];
          ),
          Container(
           width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.white
-            ,
-           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(23),
-            topRight: Radius.circular(23),
+          decoration: 
+           BoxDecoration(
+              color: Colors.white,
+              borderRadius: 
+                BorderRadius.only(
+                  topLeft: Radius.circular(23),
+                  topRight: Radius.circular(23),
             
            )
           ),
           child: Padding(
-                      padding: const EdgeInsets.only(top: 15,),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-            
-                      Padding(
-                      padding: const EdgeInsets.only(left: 14,right: 14),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(widget.iname,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:28 ,fontWeight: FontWeight.w500),),
-                            Container(
-                        height: 40,
-                        width: 40,
-                              decoration: BoxDecoration(
-                                color:Color.fromARGB(255, 11, 38, 39) ,
-                                shape: BoxShape.circle
-                              ),
-                              child: IconButton(onPressed:() {
-                              
+                   padding: const EdgeInsets.only(top: 15,),
+                   child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                                Padding(
+                                    padding: const EdgeInsets.only(left: 14,right: 14),
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                       Text(widget.iname,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:28 ,fontWeight: FontWeight.w500),),
+                                       Container(
+                                          height: 40,
+                                          width: 40,
+                                          decoration: 
+                                            BoxDecoration(
+                                              color:Color.fromARGB(255, 11, 38, 39) ,
+                                              shape: BoxShape.circle
+                                            ),
+                                          child: IconButton(onPressed:() {
+                            
+                                                 }, 
+                                                 icon: Icon(Icons.favorite_rounded,size: 22,color: Color.fromARGB(255, 255, 255, 255),)),
+                                         )
+                                      ],
+                                    ),
+                                ),
+                               
+                                SizedBox(height: 20,),
                                 
-                              }, icon: Icon(Icons.favorite_rounded,size: 22,color: Color.fromARGB(255, 255, 255, 255),)),
-                            )
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 20,),
-                   Padding(
-                      padding: const EdgeInsets.only(left: 14,right: 14),
-                     child: Text(widget.idescription1,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
-                   ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 14,right: 14),
+                                child: Text(widget.idescription1,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
+                                ),
             
-            SizedBox(height: 20,),
-                   Padding(
-                      padding: const EdgeInsets.only(left: 14,right: 14),
-                     child: Text("Allergen & Ingredient",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
-                   ),
-                   Padding(
-                      padding: const EdgeInsets.only(left: 14,right: 14),
-                     child: Text(widget.idescription2,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 13),),
-                   ),
-                    Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-               topLeft: Radius.circular(33),
-               topRight: Radius.circular(33),
+                                SizedBox(height: 20,),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 14,right: 14),
+                                child: Text("Allergen & Ingredient",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
+                                ),
+                  
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 14,right: 14),
+                                child: Text(widget.idescription2,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 13),),
+                                ),
+
+                               Container(
+                                  width: double.infinity,
+                                  decoration: 
+                                    BoxDecoration(
+                                      borderRadius: 
+                                        BorderRadius.only(
+                                          topLeft: Radius.circular(33),
+                                          topRight: Radius.circular(33),
               
-            ),
-            color:Color.fromARGB(255, 255, 230, 238),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(right: 20,left: 20,top: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+                                        ),
+                                      color:Color.fromARGB(255, 255, 230, 238),
+                                    ),
+                                    child: Padding(
+                                        padding: const EdgeInsets.only(right: 20,left: 20,top: 20),
+                                        child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              Text("Price",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 15),),
-                                              Text("Rs.${widget.iprice}.00",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 18,fontWeight: FontWeight.bold),)
-                                            ],
-                                          ),
+                                                Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                        Column(
+                                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                                            children: [
+                                                                Text("Price",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 15),),
+                                                                Text("Rs.${widget.iprice}.00",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize: 18,fontWeight: FontWeight.bold),)
+                                                     ],
+                                                 ),
                                           
 
                                 Row(
@@ -215,7 +224,7 @@ List detailsitems=[];
                                             fixedSize: Size(500, 60)
                                           ),
                                           onPressed:() {
-
+                                         
                                          detailsitems.add([widget.img1,widget.iname,widget.iprice*a,a]); 
 
                                            

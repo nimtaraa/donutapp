@@ -1,7 +1,10 @@
 import 'package:donutapp/model.dart';
 import 'package:donutapp/thankyoupage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class cart extends StatefulWidget {
@@ -12,6 +15,7 @@ class cart extends StatefulWidget {
 }
 
 class _cartState extends State<cart> {
+  List itemcart=[];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,11 +38,14 @@ class _cartState extends State<cart> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                 Container(
-                  height: 350,
+                  height: 325,
                   width: double.infinity,
                   child: ListView.builder(
                     itemCount: value.cartitems.length,
                     itemBuilder:(context, index) {
+
+                      itemcart.add(value.cartitems[index]);
+
                       print(value.cartitems[index][1]);
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -77,6 +84,7 @@ class _cartState extends State<cart> {
 
                                     trailing: IconButton(onPressed:() {
                                       Provider.of<cartmodel>(context,listen: false).removeitem(index);
+
                                     }, icon: Icon(Icons.delete,size: 17,color: Colors.black,)),
                                    ),
                       ),
@@ -100,9 +108,147 @@ class _cartState extends State<cart> {
                      ),
                   ),
                 ),
-                Container(
-                  height: 170,
-                  width: double.infinity,
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Stack(
+                    children: [
+                      
+                          //  Positioned(
+                          //   top: 80,
+                          //   right: 240,
+                          //    child: Container(
+                          //                            height: 200,
+                          //                            width: 200,
+                          //                            decoration: BoxDecoration(
+                          //                              shape: BoxShape.circle,
+                          //                              color: Colors.amber
+                          //                            ),
+                          //                          ),
+                          //  ),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage("sourcess/backgrountC.png",),fit: BoxFit.contain,opacity: 0.3),
+                          borderRadius: BorderRadius.circular(12),
+                          color: const Color.fromRGBO( 0, 0, 0,0.1)
+                        ),
+                        child:Padding(
+                          padding: const EdgeInsets.only(left: 10,right: 10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                   children: [
+                                     SizedBox(
+                                        
+                                        height: 80,
+                                        width: 150,
+                                        child: LottieBuilder.asset("sourcess/animation05.json"),
+                                      ),
+                                             Container(
+                                          width: 150,
+                                          child: TextField(
+                                            
+                                            keyboardType: TextInputType.name,
+                                            decoration: InputDecoration(
+                                              hintText: "Name",
+                                              
+                                              hintStyle: TextStyle(fontSize: 12),
+                                              focusedBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(color: Color.fromARGB(143, 62, 62, 62))
+                                          
+                                              )
+                                              
+                                            ),
+                                          ),
+                                        ),
+                                   ],
+                                 ),
+                                  Container(
+                                    width: double.infinity,
+                                    child: Row(
+                                      mainAxisAlignment:MainAxisAlignment.end,
+                                      children: [
+                                        
+                          
+                                        Container(
+                                          width: 150,
+                                          child: TextField(
+                                            
+                                            keyboardType: TextInputType.number,
+                                            decoration: InputDecoration(
+                                              hintText: "CCV",
+                                               hintStyle: TextStyle(fontSize: 12),
+                                             
+                                              focusedBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(color: Color.fromARGB(143, 62, 62, 62))
+                                          
+                                              )
+                                              
+                                            ),
+                                          ),
+                                        ),
+                          
+                                      ],
+                                    ),
+                                  ),
+                          
+                          
+                                   Container(
+                                    width: double.infinity,
+                                    child: Row(
+                                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                      children: [
+                                 Container(
+                                          width: 150,
+                                          child: TextField(
+                                            
+                                            keyboardType: TextInputType.number,
+                                            decoration: InputDecoration(
+                                              hintText: "1234   5678    9101",
+                                              hintStyle: TextStyle(fontSize: 12),
+                      
+                                              focusedBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(color: Color.fromARGB(143, 62, 62, 62))
+                                          
+                                              )
+                                              
+                                            ),
+                                          ),
+                                        ),
+                          
+                                        Container(
+                                          width: 150,
+                                          child: TextField(
+                                            
+                                            keyboardType: TextInputType.datetime,
+                                            decoration: InputDecoration(
+                                              hintText: "DD/MM/YYYY",
+                                              hintStyle: TextStyle(fontSize: 12),
+                      
+                                              focusedBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(color: Color.fromARGB(143, 62, 62, 62))
+                                          
+                                              )
+                                              
+                                            ),
+                                          ),
+                                        ),
+                          
+                                      ],
+                                    ),
+                                  ),
+                          
+                                  SizedBox(height: 15,)
+                            ],
+                          ),
+                        )
+                      ),
+                 
+                    ],
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 15,right: 15),
@@ -142,16 +288,16 @@ class _cartState extends State<cart> {
                                     ],
                          ),
                          ElevatedButton(onPressed:() {
+                          print(itemcart);
                             Navigator.of(context).push(MaterialPageRoute(builder:(context) {
-                              return thankyou();
+                              return thankyou(getcart: itemcart,);
                             },),);
                          }, child: Text("cart",style: TextStyle(color: Colors.black,fontSize: 10),))
                       ],
                     ),
                   ),
-                )
-
-
+                ),
+      
 
 ],
               );

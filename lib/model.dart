@@ -19,10 +19,9 @@ notifyListeners();
 
 print(cartitems);
 
-
-
-
 }
+
+
 
 void removeitem(int index){
 

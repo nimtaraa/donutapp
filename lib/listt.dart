@@ -7,7 +7,7 @@ class listt extends StatefulWidget {
   String name;
   int price;
   String description01;
-    String description02;
+  String description02;
 
 
    listt({
@@ -18,7 +18,8 @@ class listt extends StatefulWidget {
     required this.description01,
     required this.description02,
     
-    super.key});
+    super.key
+    });
 
   @override
   State<listt> createState() => _listtState();
