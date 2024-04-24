@@ -40,8 +40,8 @@ class _thankyouState extends State<thankyou> {
                   Padding(
                     padding: const EdgeInsets.only(top: 30),
                     child: Container(
-                      height: 300,
-                      width: 300,
+                      height: 240,
+                      width: 240,
                       child: LottieBuilder.asset("sourcess/Animation02.json")
                     ),
                   ),
@@ -50,20 +50,25 @@ class _thankyouState extends State<thankyou> {
                       child: Text("Estimated preparation time",style: TextStyle(color: Color.fromARGB(255, 10, 61, 47),fontSize: 18,fontWeight: FontWeight.bold)),
                     ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20,right: 15,left: 15),
+                    padding: const EdgeInsets.only(top: 36,right: 15,left: 15),
                     child: Container(
-                      height: 90,
+                      height: 132,
                       width: double.infinity,
                       decoration: BoxDecoration(borderRadius:BorderRadius.circular(20),color: Colors.white),
                       child: Padding(
-                        padding:  EdgeInsets.all(4.0),
+                        padding:  EdgeInsets.only(right: 5,left: 5,bottom: 5),
                         child: ListView.builder(
                           itemCount: widget.getcart.length,
                           itemBuilder:(context, index) {
                         
-                            return ListTile(
-                               title:Text(widget.getcart[index][1])
-                        
+                            return SizedBox(
+                              height: 35,
+                              child: ListTile(
+                                 title:Text("${widget.getcart[index][1]}",style: TextStyle(fontSize: 12),),
+                                 trailing: Text("${widget.getcart[index][3]}",style: TextStyle(fontSize: 13),),
+                              
+                                                      
+                              ),
                             );
                           
                         },),

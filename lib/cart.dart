@@ -38,7 +38,7 @@ class _cartState extends State<cart> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                 Container(
-                  height: 325,
+                  height: 300,
                   width: double.infinity,
                   child: ListView.builder(
                     itemCount: value.cartitems.length,
@@ -46,7 +46,6 @@ class _cartState extends State<cart> {
 
                       itemcart.add(value.cartitems[index]);
 
-                      print(value.cartitems[index][1]);
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
@@ -274,7 +273,7 @@ class _cartState extends State<cart> {
                           children: [
                                Text("Subtotal",style: TextStyle(fontSize: 15,color: Color.fromARGB(255, 11, 38, 39)),),
 
-                               Text(value.calculation().toString())
+                               Text(value.calculation())
 
                                     ],
                          ),
@@ -283,16 +282,33 @@ class _cartState extends State<cart> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                                Text("Convenience Fee",style: TextStyle(fontSize: 15,color: Color.fromARGB(255, 11, 38, 39)),),
-                               
+                               Text("-${(double.parse(value.calculation())*0.05).toString()}")
 
                                     ],
                          ),
-                         ElevatedButton(onPressed:() {
-                          print(itemcart);
+                          Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                               Text("Total",style: TextStyle(fontSize: 18,color: Color.fromARGB(255, 11, 38, 39),fontWeight: FontWeight.bold),),
+                               Text(((double.parse(value.calculation()))-(double.parse(value.calculation())*0.05)).toString(),style: TextStyle(fontSize: 15,color: Color.fromARGB(255, 11, 38, 39),fontWeight: FontWeight.bold),)
+
+                                    ],
+                         ),
+                         
+                         ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size(400, 29),
+                            backgroundColor: Color.fromARGB(255, 239, 66, 124)
+
+                          ),
+                          
+                          
+                          onPressed:() {
+                            print(itemcart);
                             Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                               return thankyou(getcart: itemcart,);
                             },),);
-                         }, child: Text("cart",style: TextStyle(color: Colors.black,fontSize: 10),))
+                         }, child: Text("Place Order",style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255),fontSize: 15,fontWeight: FontWeight.bold),))
                       ],
                     ),
                   ),
