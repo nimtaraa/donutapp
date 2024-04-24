@@ -1,10 +1,17 @@
+import 'package:donutapp/firebase_options.dart';
 import 'package:donutapp/load.dart';
 import 'package:donutapp/model.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main(){
+void main() async{
   
+
+WidgetsFlutterBinding.ensureInitialized();
+await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+
   runApp(
     
     ChangeNotifierProvider(

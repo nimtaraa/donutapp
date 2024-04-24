@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "970855752151",
+    "project_id": "finaldonutsproject",
+    "storage_bucket": "finaldonutsproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970855752151:android:349c71582df102dc4f2b92",
+        "android_client_info": {
+          "package_name": "com.example.donutapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwFh4BP_NxswU45uMPXsJkaIRNksW-E-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
