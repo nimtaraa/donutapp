@@ -54,7 +54,7 @@ class _listtState extends State<listt> {
             height: 146,
             width: 145,
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(widget.imagepath),fit: BoxFit.contain)
+              image: DecorationImage(image: NetworkImage(widget.imagepath),fit: BoxFit.contain)
             ),
           ),
         ),

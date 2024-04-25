@@ -39,7 +39,7 @@ class _itemmState extends State<itemm> {
           Container(
             height: 75,
             width: 75,
-            decoration: BoxDecoration(image: DecorationImage(image: AssetImage(widget.img),fit: BoxFit.contain),),
+            decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(widget.img),fit: BoxFit.contain),),
             
           ),
           SizedBox(width: 10,),

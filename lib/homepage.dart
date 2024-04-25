@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:donutapp/cart.dart';
 import 'package:donutapp/itemm.dart';
 import 'package:donutapp/listt.dart';
@@ -13,6 +14,12 @@ class homepage extends StatefulWidget {
 }
 
 class _homepageState extends State<homepage> {
+
+
+final donutss=FirebaseFirestore.instance.collection("Donutslist").snapshots();
+final hot=FirebaseFirestore.instance.collection("Hot Drinks").snapshots();
+final iced=FirebaseFirestore.instance.collection("Ice Drinks").snapshots();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -114,54 +121,63 @@ class _homepageState extends State<homepage> {
                 Text("Pumpkin Spice donut!",style: TextStyle(color: Color.fromARGB(156, 0, 0, 0),fontSize: 18),)
               ],
              ),
-                  
-          
            ),
-                 Padding(
-           padding: const EdgeInsets.only(left: 10,top: 24),
-           child: Text("Featured",style: TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),),
+
+          Padding(
+          padding: const EdgeInsets.only(left: 10,top: 24),
+          child: Text("Featured",style: TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),),
                  ),
                  Padding(
            padding: const EdgeInsets.only(top: 30),
            child: Container(
             height: 200,
             width: double.infinity,
-             child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-               child: Padding(
-                 padding: const EdgeInsets.only(left: 10),
-                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                      listt(imagepath: 'sourcess/donut1.png', name: 'Pumpkin Spice ', price: 400, description01: 'Glazed old fashioned pumpkin spice cake donut', description02: 'May contain Milk, Eggs, Wheat, Tree Nuts, Peanuts, Seasame and Soy.',),
-                      
-                    SizedBox(width: 20,),
-                      listt(imagepath: 'sourcess/donut2.png', name: 'strawberry Lemon ', price: 450, description01: 'Glazed old fashioned strawberry lemon cake donut',description02: "This classic cake donut offers a delightful blend of ripe strawberry and zesty lemon flavors in every bite.may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.",),
-           
-                 
-                                  SizedBox(width: 20,),
-                 
-                                      listt(imagepath: 'sourcess/donut3.png', name: 'strawberry  ', price: 350, description01: 'Glazed old fashioned strawberry spice cake donut', description02: 'This donut features a classic cake base infused with the sweet, fruity flavor of ripe strawberries.may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.',),
-           
-                                  SizedBox(width: 20,),
-                 
-                                    listt(imagepath: 'sourcess/donut4.png', name: 'Vanila ', price: 250, description01: 'Glazed old fashioned Vanila spice cake donut', description02: 'This donut offers a classic cake base infused with the warm, comforting flavor of vanilla..may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.',),
-           
-                                  SizedBox(width: 20,),
-                 
-                                    listt(imagepath: 'sourcess/donut5.png', name: 'Blueberries ', price: 750, description01: 'Glazed old fashioned Blueberry spice cake donut', description02: 'This donut features a classic cake base infused with the natural sweetness of plump, ripe blueberries..may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.',),
-           
-                                  SizedBox(width: 20,),
-                 
-                                                      listt(imagepath: 'sourcess/donut6.png', name: 'Vanila Lemon ', price: 650, description01: 'Glazed old fashioned Vanila Lemonkin spice cake donut', description02: 'This donut features a classic cake base infused with a harmonious blend of warm vanilla and zesty lemon flavors.may contain milk, eggs, wheat, tree nuts, peanuts, sesame, and soy.',),
-          
-                                SizedBox(width: 20,),
-                 
+             child: StreamBuilder(
+              
+              stream:donutss, 
+              
+              builder:(context, snapshot) {
+
+                 if (snapshot.hasError) {
+
+                  return Text("Error");
                    
-                  ],
-                 ),
-               ),
-             ),
+                 }if(snapshot.connectionState==ConnectionState.waiting){
+                       return Text("Loading...");
+
+                 }
+
+             
+                var donutsappdoc=snapshot.data!.docs;
+
+               return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: donutsappdoc.length,
+                itemBuilder:(context, index) {
+                
+                return Padding(
+                  padding: const EdgeInsets.only(right: 7,left: 7),
+                  child: listt(
+                    imagepath: donutsappdoc[index]["img"], 
+                    name:donutsappdoc[index]['name'], 
+                    price: donutsappdoc[index]['price'],
+                     description01: donutsappdoc[index]['description01'], 
+                     description02: donutsappdoc[index]['description02'], 
+                     
+                     ),
+                );
+
+                    
+
+                 
+               },);
+
+              },
+              
+              
+              
+              )
+
            ),
                  ),
           
@@ -220,53 +236,95 @@ class _homepageState extends State<homepage> {
                 Container(
                   height: 300,
                   child: TabBarView(children: [
-                    Column(
-                      children: [
-                        itemm(img: "sourcess/Cofee1.png", itemname: "Original Coffee", cprice: 550, cdescription1: 'Tased the Orignal tase of coffee', cdescription2: 'Included Coffee,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
-                        itemm(img: "sourcess/Tea1.png", itemname: "Tea", cprice: 350, cdescription1: 'Tased the taste of Tea', cdescription2: 'Included Milk,Suger,tea,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
-                        itemm(img: "sourcess/nespresso1.png", itemname: "Enespresso", cprice: 650, cdescription1: 'Tased the orignal taste of Enespresso', cdescription2: 'Included Dark Coffee,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',)
+                    StreamBuilder(stream: hot, builder:(context, snapshot) {
+                      if (snapshot.hasError){
+                        return Text("Error");
+                      }
+                      if(snapshot.connectionState==ConnectionState.waiting){
+                        return Text("Loading...");
+                      }
+                      var hotdoc=snapshot.data!.docs;
 
-
-                      ],
-                    ),
-
-                           Column(
-                      children: [
-                        itemm(img: "sourcess/Tea1(1).png", itemname: "Iced Latte", cprice: 700, cdescription1: 'Tased the Ice Latte', cdescription2: 'Included Icecream,Latte,Coffee,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
-                        itemm(img: "sourcess/Tea1(2).png", itemname: "Iced Macchiato", cprice:750, cdescription1: 'Tased the Iced Macchiato', cdescription2: 'Included Icecream,Coffee,Milk,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
-                        itemm(img: "sourcess/Tea1(3).png", itemname: "Iced Coffee with milk", cprice: 800, cdescription1: 'Tased the Iced Coffee With milk', cdescription2: 'Included Cofee, Milk,Chocolate,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',)
-
-
-                      ],
-                    ),
-            SingleChildScrollView(
-              child: Column(
-                        children: [
-                          itemm(img: "sourcess/Cofee 1(2).png", itemname: "Tripple Chocolate", cprice: 870, cdescription1: 'Tased the Thripple Chocolate', cdescription2: 'Included Chocolate ,Milk,Nuts,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
-              
-              
-              Container(
-                    child: Row(
-                      children: [
-                        SizedBox(width: 10,),
-                      Container(
-                        height: 110,
-                        width: 75,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("sourcess/Tea 1(2).png"),fit: BoxFit.contain),),
+                      return ListView.builder(
                         
+                        itemCount: hotdoc.length,
+                        itemBuilder:(context, index) {
+                        
+                          return itemm(
+                            img: hotdoc[index]["img"], 
+                            itemname: hotdoc[index]["name"], 
+                            cprice: hotdoc[index]["price"], 
+                            cdescription1: hotdoc[index]["description01"], 
+                            cdescription2: hotdoc[index]["description02"]);
+                      },);
+                    },),
+                    // Column(
+                    //   children: [
+                    //     itemm(img: "sourcess/Cofee1.png", itemname: "Original Coffee", cprice: 550, cdescription1: 'Tased the Orignal tase of coffee', cdescription2: 'Included Coffee,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
+                    //     itemm(img: "sourcess/Tea1.png", itemname: "Tea", cprice: 350, cdescription1: 'Tased the taste of Tea', cdescription2: 'Included Milk,Suger,tea,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',),
+                    //     itemm(img: "sourcess/nespresso1.png", itemname: "Enespresso", cprice: 650, cdescription1: 'Tased the orignal taste of Enespresso', cdescription2: 'Included Dark Coffee,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',)
+
+
+                    //   ],
+                    // ),
+                    StreamBuilder(
+                      stream: iced, 
+                      builder:(context, snapshot) {
+                        if (snapshot.hasError){
+                          return Text("Error");
+                        }
+                        if(snapshot.connectionState==ConnectionState.waiting){
+                          return Text("Loading...");
+                        }
+                      var iceddoc=snapshot.data!.docs;
+                      return ListView.builder(
+                        itemCount: iceddoc.length,
+                        itemBuilder:(context, index) {
+                        
+                        return itemm(
+                          img: iceddoc[index]["img"], 
+                          itemname: iceddoc[index]["name"], 
+                          cprice: iceddoc[index]["price"], 
+                          cdescription1: iceddoc[index]["description01"], 
+                          cdescription2: iceddoc[index]["description02"]);
+                      },);
+
+                      },
                       ),
-                      SizedBox(width: 10,),
-                      Text("Rasberry Vanilla"),
-                    ],),
-                  ),
-              
-              
-                          itemm(img: "sourcess/nespresso 1(2).png", itemname: "Classic Sprinkle", cprice: 760, cdescription1: 'Tasted the Classic Spricle of Donuts', cdescription2: 'Included Milk,Chocolate,Nuts,Floar,Suger,Traditional sets for serving tea, typically delicate and elegant, often accompanied by matching saucers.',)
-              
-              
-                        ],
-                      ),
-            ),
+                      StreamBuilder(stream:donutss, 
+                      builder:(context, snapshot) {
+                      if (snapshot.hasError){
+                          return Text("Error");
+                        }
+                        if(snapshot.connectionState==ConnectionState.waiting){
+                          return Text("Loading...");
+                        }
+
+                        var donutsdocs=snapshot.data!.docs;
+                        return ListView.builder(
+                          
+                          
+                          itemCount: donutsdocs.length,
+                          itemBuilder:(context, index) {
+                           return itemm(
+                            img: donutsdocs[index]['img'], 
+                            itemname: donutsdocs[index]['name'], 
+                            cprice: donutsdocs[index]['price'], 
+                            cdescription1: donutsdocs[index]["description01"], 
+                            cdescription2: donutsdocs[index]["description02"]);
+
+                          
+                        },);
+
+                      },
+                      
+                      
+                      
+                      
+                      )   
+
+
+                 
             
 
                 ]))

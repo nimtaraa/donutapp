@@ -70,7 +70,7 @@ List detailsitems=[];
             height: 300,
             width: 300,
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(widget.img1),fit: BoxFit.contain)
+              image: DecorationImage(image: NetworkImage(widget.img1),fit: BoxFit.contain)
             ),
            ),
          ),
