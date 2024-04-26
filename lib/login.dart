@@ -184,16 +184,16 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                             Container(
-                    height: 30,
+                    height: 45,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("sourcess/sweetwheel (4).png"),
+                        image: AssetImage("sourcess/sweetwheellogo1.png"),
                       ),
                     ),
                   ),
                   // Top logo image
                   Container(
-                    height: 100,
+                    height: 115,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage("sourcess/sweetwheel2 (1).png"),
@@ -227,7 +227,7 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                 children: [
                                   // Sign In tab
                                   Padding(
-                                    padding: const EdgeInsets.all(16),
+                                    padding: const EdgeInsets.only(left: 40,right: 45,top: 16,bottom: 16),
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -237,7 +237,7 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                           keyboardType: TextInputType.emailAddress,
                                           decoration: InputDecoration(
                                             hintText: "Email",
-                                            hintStyle: TextStyle(fontSize: 12),
+                                            hintStyle: TextStyle(fontSize: 12,color: Color.fromARGB(255, 175, 174, 174)),
                                             focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(color: Colors.black),
                                             ),
@@ -249,8 +249,8 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                           obscureText: !passwordVisible,
                                           decoration: InputDecoration(
                                             hintText: "Password",
-                                                      hintStyle: TextStyle(fontSize: 12),
-                                            focusedBorder: UnderlineInputBorder(
+                                              hintStyle: TextStyle(fontSize: 12,color: Color.fromARGB(255, 175, 174, 174)),
+                                              focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(color: Colors.black),
                                             ),
                                             suffixIcon: IconButton(
@@ -296,7 +296,7 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                   ),
                                   // Sign Up tab (you can add your own sign-up form here)
                          Padding(
-                                    padding: const EdgeInsets.all(16),
+                                    padding: const EdgeInsets.only(left: 40,right: 45,top: 16,bottom: 16),
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -306,7 +306,7 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                           keyboardType: TextInputType.emailAddress,
                                           decoration: InputDecoration(
                                             hintText: "Enter Email",
-                                            hintStyle: TextStyle(fontSize: 12),
+                                            hintStyle: TextStyle(fontSize: 12,color: Color.fromARGB(255, 175, 174, 174)),
                                             focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(color: Colors.black),
                                             ),
@@ -318,7 +318,7 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                           obscureText: !checkpassword,
                                           decoration: InputDecoration(
                                             hintText: "Enter Password",
-                                            hintStyle: TextStyle(fontSize: 12),
+                                            hintStyle: TextStyle(fontSize: 12,color: Color.fromARGB(255, 175, 174, 174)),
                                             focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(color: Colors.black),
                                             ),
@@ -340,9 +340,9 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                           obscureText: !recheckpassword,
                                           decoration: InputDecoration(
                                             hintText: "Re Enter Password",
-                                            hintStyle: TextStyle(fontSize: 12),
+                                            hintStyle: TextStyle(fontSize: 12,color: Color.fromARGB(255, 175, 174, 174)),
                                             focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(color: Colors.black),
+                                              borderSide: BorderSide(color: Color.fromARGB(255, 0, 0, 0)),
                                             ),
                                             suffixIcon: IconButton(
                                               icon: Icon(

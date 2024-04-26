@@ -113,19 +113,42 @@ final iced=FirebaseFirestore.instance.collection("Ice Drinks").snapshots();
           crossAxisAlignment: CrossAxisAlignment.start,  
                 children: [
            Padding(
-             padding: const EdgeInsets.only(left: 10,top: 20),
-             child: Row(
-              children: [
-                Text("NEW",style: TextStyle(color: Color.fromARGB(187, 0, 0, 0),fontWeight: FontWeight.bold,fontSize: 24),),
-                SizedBox(width: 10,),
-                Text("Pumpkin Spice donut!",style: TextStyle(color: Color.fromARGB(156, 0, 0, 0),fontSize: 18),)
-              ],
+             padding: const EdgeInsets.only(left: 7,top: 20,bottom: 20),
+             child: Container(
+              width: 270,
+              height: 40,
+              
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.white,
+                  width: 4,
+                
+              ),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15)
+              ),
+               child: Row(
+                children: [
+                  Text(" NEW",style: TextStyle(color: Color.fromARGB(255, 97, 97, 97),fontWeight: FontWeight.bold,fontSize: 24),),
+                  SizedBox(width: 7,),
+                  Text("Pumpkin Spice donut",style: TextStyle(color: Color.fromARGB(255, 97, 97, 97),fontSize: 14),),
+                  Text(" !",style: TextStyle(color: Color.fromARGB(255, 97, 97, 97),fontWeight: FontWeight.bold,fontSize: 18),),
+                ],
+               ),
              ),
            ),
 
           Padding(
           padding: const EdgeInsets.only(left: 10,top: 24),
-          child: Text("Featured",style: TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),),
+          child: Container(
+            width: 80,
+            height: 28,
+            
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.white),
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Text(" Featured",style: TextStyle(fontSize: 15,color:Color.fromARGB(255, 97, 97, 97),fontWeight: FontWeight.bold),),
+            )),
                  ),
                  Padding(
            padding: const EdgeInsets.only(top: 30),
@@ -183,22 +206,34 @@ final iced=FirebaseFirestore.instance.collection("Ice Drinks").snapshots();
           
                 Padding(
           padding: const EdgeInsets.only(left: 8,top: 22,bottom: 15),
-          child: Text("Categories",style: TextStyle(fontSize: 15 ,fontWeight: FontWeight.bold,color: Colors.black),),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text("Categories",style: TextStyle(fontSize: 15 ,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 97, 97, 97)),),
+            )),
                 ),
                 TabBar(
                   indicator: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                    ),
                     borderRadius: BorderRadius.circular(14),
                     color: Color.fromARGB(200, 237, 68, 124)
                   ),
                  labelColor: Colors.white,
-                 unselectedLabelColor: Colors.black,
+                 
+                 unselectedLabelColor: Color.fromARGB(200, 237, 68, 124),
                   
                   tabs: [
                  
                  Container(
                   width: 400,
                   decoration: BoxDecoration(
-                                        border: Border.all(width: 1,color: Colors.black),
+                                        border: Border.all(width: 1,color: Color.fromARGB(200, 237, 68, 124)),
 
                     borderRadius: BorderRadius.circular(15),),
                   child: Center(child: Padding(
@@ -210,7 +245,7 @@ final iced=FirebaseFirestore.instance.collection("Ice Drinks").snapshots();
                  Container(
                   width: 400,
                   decoration: BoxDecoration(
-                                        border: Border.all(width: 1,color: Colors.black),
+                                        border: Border.all(width: 1,color: Color.fromARGB(200, 237, 68, 124)),
 
                     borderRadius: BorderRadius.circular(15)),
                   child: Padding(
@@ -222,7 +257,7 @@ final iced=FirebaseFirestore.instance.collection("Ice Drinks").snapshots();
                  Container(
                   width: 400,
                   decoration: BoxDecoration(
-                    border: Border.all(width: 1,color: Colors.black),
+                    border: Border.all(width: 1,color: Color.fromARGB(200, 237, 68, 124)),
                     borderRadius: BorderRadius.circular(15)),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 7,left: 7,right: 7,bottom: 7),

@@ -55,6 +55,15 @@ class __loadingState extends State<loadin> {
           //     image: DecorationImage(image: AssetImage("sourcess/sweetwheel2.png"),fit: BoxFit.contain)
           //   ),
           // ),
+ Center(
+           child: Container(
+            height: 60,
+            width: 370,
+            decoration: BoxDecoration(image: DecorationImage(image: AssetImage("sourcess/sweetwheellogo1.png"),fit: BoxFit.cover)),
+           ),
+         ),
+
+
          Center(
            child: Container(
             height: 220,

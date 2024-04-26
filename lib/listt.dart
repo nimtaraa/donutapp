@@ -60,11 +60,11 @@ class _listtState extends State<listt> {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10,top: 4),
-          child: Text(widget.name,style: TextStyle(color: Colors.black,fontSize: 14,fontWeight: FontWeight.bold),),
+          child: Text(widget.name,style: TextStyle(color: Color.fromARGB(255, 97, 97, 97),fontSize: 14,fontWeight: FontWeight.bold),),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10,top: 4),
-          child: Text(widget.price.toString(),style: TextStyle(color: Colors.black,fontSize: 12),),
+          child: Text(widget.price.toString(),style: TextStyle(color: Color.fromARGB(140, 0, 0, 0),fontSize: 12),),
         )
       ],
          ),

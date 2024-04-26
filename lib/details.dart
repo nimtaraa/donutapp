@@ -96,7 +96,7 @@ List detailsitems=[];
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                       Text(widget.iname,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:28 ,fontWeight: FontWeight.w500),),
+                                       Text(widget.iname,style: TextStyle(color: Color.fromARGB(185, 11, 38, 39),fontSize:28 ,fontWeight: FontWeight.w600),),
                                        Container(
                                           height: 40,
                                           width: 40,
@@ -118,7 +118,7 @@ List detailsitems=[];
                                 
                                 Padding(
                                   padding: const EdgeInsets.only(left: 14,right: 14),
-                                child: Text(widget.idescription1,style: TextStyle(color: Color.fromARGB(255, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
+                                child: Text(widget.idescription1,style: TextStyle(color: Color.fromARGB(168, 11, 38, 39),fontSize:16 ,fontWeight: FontWeight.w500),),
                                 ),
             
                                 SizedBox(height: 20,),
@@ -215,7 +215,7 @@ List detailsitems=[];
                                        ),
 
                                        Padding(
-                                         padding: const EdgeInsets.only(top: 55,bottom: 10),
+                                         padding: const EdgeInsets.only(top: 35,bottom: 10),
                                          child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
                                           

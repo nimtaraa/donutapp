@@ -25,7 +25,15 @@ class _cartState extends State<cart> {
             appBar: AppBar(
             backgroundColor: Colors.transparent,
             automaticallyImplyLeading: false,
-            title:Text("Your Cart",style: TextStyle(color: Color.fromARGB(255, 11, 38, 39) ,fontSize: 18),) ,
+            title:Container(
+               decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white
+            ),
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text("Your Cart",style: TextStyle(color: Color.fromARGB(255, 97, 97, 97),fontSize: 13,),),
+              )) ,
       ),
       body:SingleChildScrollView(
         child: Consumer<cartmodel>(

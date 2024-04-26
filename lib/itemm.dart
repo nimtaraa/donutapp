@@ -43,7 +43,7 @@ class _itemmState extends State<itemm> {
             
           ),
           SizedBox(width: 10,),
-          Text(widget.itemname),
+          Text(widget.itemname,style: TextStyle(color: Color.fromARGB(255, 126, 126, 126),fontWeight: FontWeight.bold)),
         ],),
       ),
     );

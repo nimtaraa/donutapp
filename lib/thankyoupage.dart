@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:donutapp/itemm.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,14 +21,51 @@ List getcart;
 }
 
 class _thankyouState extends State<thankyou> {
+
+  int _counter = 600; 
+  bool _isYellow = false;
+  bool _isred=false;
+
+@override
+  void initState() {
+    super.initState();
+    startTimer();
+  }
+
+  void startTimer() {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_counter > 0) {
+          _counter--;
+          if (_counter < 300) {
+            _isYellow = true; 
+          }
+                    if (_counter == 60) {
+            _isred = true; 
+          }
+      
+        } else {
+          timer.cancel();
+          
+        }
+      });
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
+
+    int minutes = _counter ~/ 60;
+    int seconds = _counter % 60;
+
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 255, 230, 238),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 85),
+            padding: const EdgeInsets.only(top: 65),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [Center(child: Text("Thank You!",style: TextStyle(color:Color.fromARGB(255, 10, 61, 47),fontSize: 42 ,fontWeight: FontWeight.bold),),),
@@ -49,6 +88,11 @@ class _thankyouState extends State<thankyou> {
                       padding: const EdgeInsets.only(top: 25),
                       child: Text("Estimated preparation time",style: TextStyle(color: Color.fromARGB(255, 10, 61, 47),fontSize: 18,fontWeight: FontWeight.bold)),
                     ),
+                      Text(
+                    '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}',
+                    style: TextStyle(fontSize: 20, color:_isred ? Colors.red : (_isYellow ? Color.fromARGB(255, 163, 148, 8) : Color.fromARGB(255, 20, 83, 3)),fontWeight: FontWeight.bold),
+                  ),        
+
                   Padding(
                     padding: const EdgeInsets.only(top: 36,right: 15,left: 15),
                     child: Container(
