@@ -63,7 +63,7 @@ class _cartState extends State<cart> {
                                         width: 55,
                                         decoration: BoxDecoration(
                                          
-                                          image: DecorationImage(image: AssetImage(value.cartitems[index][0]),fit: BoxFit.contain)
+                                          image: DecorationImage(image: NetworkImage(value.cartitems[index][0]),fit: BoxFit.contain)
                                         ),
                                       ),
                                       Container(

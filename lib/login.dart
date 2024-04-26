@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:donutapp/homepage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,11 +18,143 @@ class _LoginPageState extends State<LoginPage> {
   final email=TextEditingController();
   final password=TextEditingController();
 
-    final getemail=TextEditingController();
-    final getpassword=TextEditingController();
-    final confirmpassword=TextEditingController();
-    
+  final getemail=TextEditingController();
+  final getpassword=TextEditingController();
+  final confirmpassword=TextEditingController();
 
+
+
+Future  singup() async{
+
+if(passwordcheck()){
+  
+try {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    email: getemail.text.trim(), 
+    password: getpassword.text.trim(),
+
+      );
+
+      showDialog(context: context, 
+  
+  builder:(context) {
+      return AlertDialog(
+      iconPadding: EdgeInsets.only(bottom:0,right: 20),
+      title: Center(child: Text("Account created succesfully !",style: TextStyle(fontSize: 15),)),
+      icon: IconButton(onPressed:() {
+      Navigator.of(context).pop();
+      }, icon: Icon(Icons.close,size: 15,),alignment: Alignment.topRight,)
+      
+     );
+
+  },
+  
+  
+  );
+
+      
+
+
+} on FirebaseAuthException catch(e) {
+     
+  showDialog(context: context, 
+  
+  builder:(context) {
+    return AlertDialog(
+      iconPadding: EdgeInsets.only(bottom:0,right: 20),
+      title: Center(child: Text("${e.message}",style: TextStyle(fontSize: 15),)),
+      icon: IconButton(onPressed:() {
+      Navigator.of(context).pop();
+      }, icon: Icon(Icons.close,size: 15,),alignment: Alignment.topRight,)
+      
+     );
+
+  },
+  
+  
+  );
+}
+
+
+}else{
+  showDialog(
+    
+    context: context, 
+  
+  builder:(context) {
+    return AlertDialog(
+      iconPadding: EdgeInsets.only(bottom:0,right: 20),
+      title: Center(child: Text("Password dosen't match!",style: TextStyle(fontSize: 15),)),
+      icon: IconButton(onPressed:() {
+      Navigator.of(context).pop();
+      }, icon: Icon(Icons.close,size: 15,),alignment: Alignment.topRight,)
+      
+     );
+
+  },
+  
+  
+  );
+}
+
+}
+
+bool passwordcheck() {
+
+ if(getpassword.text.trim()==confirmpassword.text.trim()){
+
+   return true;
+  
+ } else{
+
+   return false;
+
+      
+   
+
+ }
+
+  }
+
+  Future singin() async{
+
+    try {
+  await FirebaseAuth.instance.signInWithEmailAndPassword
+(
+email: email.text.trim(), 
+
+password: password.text.trim()
+
+);
+Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+  return homepage();
+},));
+      
+    }on FirebaseAuthException catch (e) {
+      
+ showDialog(context: context, 
+  
+  builder:(context) {
+    return AlertDialog(
+      iconPadding: EdgeInsets.only(bottom:0,right: 20),
+      title: Center(child: Text("Invalid Email or Password!\nTry again",style: TextStyle(fontSize: 15),)),
+      icon: IconButton(onPressed:() {
+      Navigator.of(context).pop();
+      }, icon: Icon(Icons.close,size: 15,),alignment: Alignment.topRight,)
+      
+     );
+
+  },
+  
+  
+  );
+
+      
+    }
+
+
+  }
+    
 
 
 
@@ -133,9 +268,7 @@ class _LoginPageState extends State<LoginPage> {
                                         SizedBox(height: 77),
                                         ElevatedButton(
                                           onPressed: () {
-Navigator.of(context).push(MaterialPageRoute(builder:(context) {
-  return homepage();
-},));                                            // Handle sign-in button press here
+                                             singin();                                     
                                           },
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Colors.pink,
@@ -227,6 +360,7 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                         ElevatedButton(
                                           onPressed: () {
                                             print(email.text);
+                                            singup();
                                             // Handle sign-in button press here
                                           },
                                           style: ElevatedButton.styleFrom(
