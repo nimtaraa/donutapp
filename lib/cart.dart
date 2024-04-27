@@ -20,20 +20,22 @@ class _cartState extends State<cart> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-            backgroundColor: Color.fromARGB(255, 255, 230, 238),
+            backgroundColor: Color(0XFFFFF6F2),
       
             appBar: AppBar(
             backgroundColor: Colors.transparent,
             automaticallyImplyLeading: false,
-            title:Container(
-               decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white
-            ),
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Text("Your Cart",style: TextStyle(color: Color.fromARGB(255, 97, 97, 97),fontSize: 13,),),
-              )) ,
+            title:Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Row(
+                children: [
+                  IconButton(onPressed:() {
+                   Navigator.of(context).pop();
+                    }, icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
+                  Text("Your Cart",style: TextStyle(color: Color(0xFF174C4F),fontSize: 20,fontWeight: FontWeight.w500),),
+                ],
+              ),
+            ) ,
       ),
       body:SingleChildScrollView(
         child: Consumer<cartmodel>(
@@ -248,7 +250,7 @@ class _cartState extends State<cart> {
                                     ),
                                   ),
                           
-                                  SizedBox(height: 15,)
+                            SizedBox(height: 15,)
                             ],
                           ),
                         )
@@ -306,7 +308,7 @@ class _cartState extends State<cart> {
                          ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             fixedSize: Size(400, 29),
-                            backgroundColor: Color.fromARGB(255, 239, 66, 124)
+                            backgroundColor: Color(0xFFFF9666),
 
                           ),
                           

@@ -35,7 +35,7 @@ class __loadingState extends State<loadin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 230, 238),
+      backgroundColor: Color(0XFFFFF6F2),
       body: SafeArea(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,7 +58,7 @@ class __loadingState extends State<loadin> {
  Center(
            child: Container(
             height: 60,
-            width: 370,
+            width: 300,
             decoration: BoxDecoration(image: DecorationImage(image: AssetImage("sourcess/sweetwheellogo1.png"),fit: BoxFit.cover)),
            ),
          ),

@@ -42,7 +42,6 @@ class _listtState extends State<listt> {
       boxShadow:[ BoxShadow(
         color: Color.fromARGB(255, 207, 207, 207),
         blurRadius: 2,
-        blurStyle: BlurStyle.inner
       )]
          ),
          child: Column(
@@ -60,11 +59,11 @@ class _listtState extends State<listt> {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10,top: 4),
-          child: Text(widget.name,style: TextStyle(color: Color.fromARGB(255, 97, 97, 97),fontSize: 14,fontWeight: FontWeight.bold),),
+          child: Text(widget.name,style: TextStyle(color: Color(0xFF174C4F),fontSize: 14,fontWeight: FontWeight.w600),),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10,top: 4),
-          child: Text(widget.price.toString(),style: TextStyle(color: Color.fromARGB(140, 0, 0, 0),fontSize: 12),),
+          child: Text(widget.price.toString(),style: TextStyle(color: Color(0xFF174C4F),fontSize: 12,fontWeight:FontWeight.w500),),
         )
       ],
          ),

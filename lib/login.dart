@@ -51,7 +51,9 @@ try {
   
   
   );
-
+Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+  return homepage();
+},));
       
 
 
@@ -162,23 +164,31 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 230, 238),
+        backgroundColor: Color(0XFFFFF6F2),
         body: SingleChildScrollView(
           child: Stack(
             
             children : [ 
-              
+
+                            
               Container(
                 height: 290,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("sourcess/background.png"),fit: BoxFit.fill)
+                image: DecorationImage(image: AssetImage("sourcess/Maskgroup.png"),fit: BoxFit.fill)
+                ),
+              ),
+              Container(
+                height: 290,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage("sourcess/newbackgroound.png"),fit: BoxFit.fill)
                 ),
               ),
               
               
               Padding(
-              padding: const EdgeInsets.only(top: 45),
+              padding: const EdgeInsets.only(top: 70),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -193,16 +203,17 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                   ),
                   // Top logo image
                   Container(
-                    height: 115,
+                    height: 112,
+                    width: 164,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("sourcess/sweetwheel2 (1).png"),
+                        image: AssetImage("sourcess/Rectangledonut.png"),fit: BoxFit.contain,
                       ),
                     ),
                   ),
                   // Form container
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 25),
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
                     child: Container(
                       height: 400,
                       width: double.infinity,
@@ -271,7 +282,9 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                              singin();                                     
                                           },
                                           style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.pink,
+                             fixedSize: Size(225, 44),
+                                            backgroundColor: Color(0xFFFF9666),
+                                            
                                             shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(57),
                                             ),
@@ -364,7 +377,9 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                                             // Handle sign-in button press here
                                           },
                                           style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.pink,
+                                            backgroundColor: Color(0xFFFF9666),
+                                            fixedSize: Size(225, 44),
+
                                             shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(57),
                                             ),
@@ -448,13 +463,10 @@ Navigator.of(context).push(MaterialPageRoute(builder:(context) {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 120),
-                    child: Container(
-                      height: 150,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(image: AssetImage("sourcess/donuts.png"),fit: BoxFit.contain)
-                      ),
+                  Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(image: AssetImage("sourcess/donuts.png"),fit: BoxFit.contain,alignment: Alignment.bottomRight)
                     ),
                   )
                 ],

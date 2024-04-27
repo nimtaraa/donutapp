@@ -40,7 +40,7 @@ class _thankyouState extends State<thankyou> {
           if (_counter < 300) {
             _isYellow = true; 
           }
-                    if (_counter == 60) {
+          if (_counter == 60) {
             _isred = true; 
           }
       
@@ -62,7 +62,7 @@ class _thankyouState extends State<thankyou> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 230, 238),
+        backgroundColor: Color(0XFFFFF6F2),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 65),

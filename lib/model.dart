@@ -4,7 +4,8 @@ class cartmodel extends ChangeNotifier{
 
 List cartitems=[];
 List items=[];
-
+List items1=[];
+List favourite=[];
 
 
 
@@ -18,6 +19,17 @@ cartitems.add(items);
 notifyListeners();
 
 print(cartitems);
+
+}
+
+void additemtofav(List favitem,int index){
+
+items1=favitem;
+
+favourite.add(items1);
+notifyListeners();
+
+print(favourite);
 
 }
 
